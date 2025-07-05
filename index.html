@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rojita Manandhar, Rumit Maharjan">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Galaxic Portal" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <title>Galaxic Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div id="nav-logo">
+                <img src="Galaxic Portal Logos/GalaxicPortal Logo T-Webicon.png" alt="Galaxic Portal Logo">
+            </div>
+            <div id="nav-links">
+                <a href="#" class="active"><i class="fa-solid fa-house"></i>Home</a>
+                <a href="#"> <i class="fa-solid fa-cube"></i>Minecraft</a>
+                <a href="#"><i class="fa-solid fa-gamepad"></i>Gaming</a>
+                <a href="#"><i class="fa-solid fa-star"></i>Reviews</a>
+                <a href="#"><i class="fa-solid fa-book"></i>Blogs</a>
+            </div>
+            <div id="nav-settings">
+                <i id="bar" class="fa-solid fa-bars"></i>    
+            </div>
+            <div id="bar-settings">
+                <a href="#" class="active"><i class="fa-solid fa-house"></i>Home</a>
+                <a href="#"><i class="fa-solid fa-cube"></i>Minecraft</a>
+                <a href="#"><i class="fa-solid fa-gamepad"></i>Gaming</a>
+                <a href="#"><i class="fa-solid fa-star"></i>Reviews</a>
+                <a href="#"><i class="fa-solid fa-book"></i>Blogs</a>
+                <a href="#"><i class="fa-solid fa-gear"></i>Settings</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <video autoplay loop playsinline muted class="background-hero" width="100%">
+            <source src="assets/Minecraft Fox Night.webm" type="video/webm">
+        </video>
+        <section id="hero-section">
+            <div id="minecraft-tooltip"></div>
+            <div class="minecraftUI">
+                <div class="minecraftUI-top"> 
+                    <div class="minecraftUI-home active" id="ui-home" data-tooltip="Home"><i class="fa-solid fa-house"></i></div>
+                    <div class="minecraftUI-about" id="ui-about" data-tooltip="About"><i class="fa-solid fa-address-card"></i></div>
+                    <div class="minecraftUI-services" id="ui-services" data-tooltip="Services"><i class="fa-solid fa-toolbox"></i></div>
+                    <div class="minecraftUI-contact" id="ui-contact" data-tooltip="Contact"><i class="fa-solid fa-phone"></i></div>
+                    <div class="minecraftUI-login" id="ui-login" data-tooltip="Login"><i class="fa-solid fa-user-plus"></i></div>
+                    <div class="minecraftUI-search" id="ui-search" data-tooltip="Search"><i class="fa-solid fa-magnifying-glass"></i></div>
+                </div>
+                <div class="minecraftUI-content">
+                    <div class="home-MUI active">
+                        <h1>Leap <br>Through <br>The Portal <img class="wolves-image" src="assets/minecraft-dog-hearts-512x512-removebg-preview.png" alt="Minecraft Wolves With Hearts"></h1>
+                        <h2>Your way to convenience</h2>
+                        <div class="homeButton-MUI" onclick="minecraftButtonClick()">Explore Minecraft</div>
+                    </div>
+                    <div class="about-MUI">
+                        <div class="about-wrapper">
+                            <div class="about-headings">
+                            <h2 >About Galaxic Portal</h2>
+                            <h2 >Read. Review. Equip.</h2>
+                            </div>
+                            <div class="about-descriptions">
+                                Galaxic Portal is your gateway to immersive, budget-friendly gaming.<br>
+                                From Minecraft mods to performance tips and hardware reviews, we help you leap through the pixelated unknown.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-MUI">Services</div>
+                    <div class="contact-MUI">contact</div>
+                    <div class="login-MUI">Login</div>
+                    <div class="search-MUI">Search</div>
+                </div>
+            </div>
+  </section>
+    </main>
+        <section id="latest-posts">
+        </section>
+        <section id="minecraft-guides"></section>
+        <section id="reviews"></section>
+        <section id="blog-snippets"></section>
+    <script src="script/script.js"></script>
+</body>
+</html>
