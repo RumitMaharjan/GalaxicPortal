@@ -74,11 +74,83 @@
                             </div>
                         </div>
                     </div>
-                    <div class="services-MUI">Services</div>
-                    <div class="contact-MUI">contact</div>
-                    <div class="login-MUI">Login</div>
+                    <div class="services-MUI">
+                        <div class="services-grid">
+                        <div class="service-slot">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <span>Boost FPS</span>
+                        </div>
+                        <div class="service-slot">
+                            <i class="fa-solid fa-toolbox"></i>
+                            <span>Gear Picks</span>
+                        </div>
+                        <div class="service-slot">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Read Reviews</span>
+                        </div>
+                        <div class="service-slot">
+                            <i class="fa-solid fa-list"></i>
+                            <span>Tips & Tricks</span>
+                        </div>
+                        <div class="service-slot" onclick="document.getElementById('blog-snippets').scrollIntoView({behavior: 'smooth'})">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>Mods/Shader</span>
+                        </div>
+                        <div class="service-slot" onclick="document.getElementById('latest-posts').scrollIntoView({behavior: 'smooth'})">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Read Blogs</span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="contact-MUI">
+                        <div class="contact-wrapper">
+                            <h2>Send a Feedback</h2>
+                            <form class="contact-form">
+                                <label for="name"><i class="fa-solid fa-user"></i> Your Name</label>
+                                <input type="text" id="name" placeholder="Steve..." required>
+                                <label for="email"><i class="fa-solid fa-envelope"></i> Your Email</label>
+                                <input type="email" id="email" placeholder="you@gmail.com" required>
+                                <label for="message"><i class="fa-solid fa-comment"> </i> Message</label>
+                                <textarea id="message" rows="4" placeholder="Leave your scroll..."></textarea>
+                                <button type="submit" onclick="minecraftButtonClick()">Send Via Portal</button>
+                            </form>
+                        </div>
+                    </div>
+                        <div class="login-MUI">                
+                            <div class="login-register-wrapper">
+                                <div class="login-tabs">
+                                    <div class="tab-button active" id="login-tab">Login</div>
+                                    <div class="tab-button" id="register-tab">Register</div>
+                                </div>
+                                <form class="form login-form active" id="login-form">
+                                    <label for="username"><i class="fa-solid fa-user"></i> Username</label>
+                                    <input type="text" placeholder="Alex" id="username" required>
+
+                                    <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
+                                    <input type="password" placeholder="Password" id="password" required>
+
+                                    <button type="submit" onclick="minecraftButtonClick()"><i class="fa-solid fa-door-open"></i> Enter Portal</button>
+                                    <div class="login-description">
+                                        <h3>Login to unlock your universe.</h3>
+                                    <img src="assets/PortalMinecraft.gif" alt="Mincraft Portal Gif Isometrics">
+                                    </div>
+                                </form>
+                                <form class="form register-form" id="register-form">
+                                    <label for="new-username"><i class="fa-solid fa-user-plus"></i> Username</label>
+                                    <input type="text" placeholder="Alex" id="new-username" required>
+
+                                    <label for="new-email"><i class="fa-solid fa-envelope"></i> Email</label>
+                                    <input type="email" placeholder="Email" id="new-email" required>
+
+                                    <label for="new-password"><i class="fa-solid fa-lock"></i> Password</label>
+                                    <input type="password" placeholder="Password" id="new-password" required>
+
+                                    <button type="submit" onclick="minecraftButtonClick()"><i class="fa-solid fa-user-check"></i> Join the Realm</button>
+                                </form>
+                            </div>
+                    </div>
                     <div class="search-MUI">Search</div>
-                </div>
+                    </div>
             </div>
   </section>
     </main>

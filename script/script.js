@@ -53,6 +53,15 @@ const tabs = document.querySelectorAll(".minecraftUI-top > div");
     });
  });
 
+ const serviceSlot = document.querySelectorAll(".service-slot");
+
+serviceSlot.forEach(e=>{
+    e.addEventListener("click",()=>{
+        minecraftButtonClick();    })
+});
+
+
+
  //Play minecraft button sound
 
  function minecraftButtonClick(){ 
@@ -60,5 +69,26 @@ const tabs = document.querySelectorAll(".minecraftUI-top > div");
     minecraftButtonSound.currentTime = 0.5;
     minecraftButtonSound.play();
  }
+
+const loginTab = document.getElementById("login-tab");
+const loginClass = document.querySelector(".login-form");
+const registerTab = document.getElementById("register-tab");
+const registerClass = document.querySelector(".register-form");
+const tabButton = document.querySelector(".tab-button");
+
+loginTab.addEventListener("click",()=>{
+    minecraftButtonClick();
+    loginClass.classList.add("active");
+    registerClass.classList.remove("active")
+    loginTab.classList.add("active");
+    registerTab.classList.remove("active");
+})
+registerTab.addEventListener("click",()=>{
+    minecraftButtonClick();
+    loginClass.classList.remove("active");
+    registerClass.classList.add("active")
+    loginTab.classList.remove("active");
+    registerTab.classList.add("active");
+})
 
  

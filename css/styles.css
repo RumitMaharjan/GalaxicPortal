@@ -247,7 +247,8 @@ main {
         display: flex;
         flex-direction: column;
         width: 450px;
-        height: 400px; 
+        min-height: 400px; 
+        max-height: 400px;
          animation: minecraftUIanimate forwards 2s;
     }
 
@@ -303,6 +304,8 @@ main {
     }
 
     .minecraftUI-content{
+        min-height: 400px; 
+        max-height: 400px;
         position: relative;
         z-index: 1;
         flex-grow: 1;
@@ -391,6 +394,7 @@ main {
     }
 
     .home-MUI h1{
+        flex-grow: 1;
         width: 100%;
         margin: 0;
         font-size: 2.5em;
@@ -530,4 +534,284 @@ main {
     border-top: 3px solid #6E6E6C;
     border-right:3px solid white;
     border-left: 3px solid #6E6E6C;
+}
+
+/* Services MUI */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 1rem;
+  font-family: 'Press Start 2P', monospace;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.service-slot {
+  background-color: darkgray;
+  border-bottom: 4px solid white;
+  border-top: 4px solid #6E6E6C;
+  border-right: 4px solid white;
+  border-left: 4px solid #6E6E6C;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  color: black;
+  cursor: pointer;
+  text-shadow: 2px 2px 0 gray;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.service-slot:hover {
+  background-color: #bcbcbc;
+  transform: scale(1.02);
+  outline: 2px solid white;
+  border-bottom: 4px solid #6E6E6C;
+  border-top: 4px solid white;
+  border-right: 4px solid #6E6E6C;
+  border-left: 4px solid white;
+}
+
+/*Contact MUI*/
+
+.contact-MUI{
+    width: 100%;
+}
+
+.contact-wrapper{
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Press Start 2P', monospace;
+    color: black;
+}
+
+.contact-wrapper h2{
+    margin-top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: darkgray;
+    padding: 0.5rem 1rem;
+    color: white;
+    margin-bottom: 1remrem;
+    border-top: 3px solid #6E6E6C;
+    border-left: 3px solid #6E6E6C;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    text-shadow: 2px 2px 0 gray;
+}
+
+.contact-form{
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-form label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-form label i{
+    font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea{
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    padding: 0.5rem;
+    background-color: darkgray;
+    color: white;
+    border: 3px solid #6E6E6C;
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+    resize: none;
+}
+
+.contact-form button{
+    box-sizing: border-box;
+    font-family: 'Press Start 2p', monospace;
+    filter: drop-shadow(0 0 2px black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 1rem;
+    background: linear-gradient(to right, #6E6E6C , gray);
+    color: white;
+    border-bottom: 6px solid rgb(94, 94, 94);
+    border-top: 5px solid lightgray;
+    border-right:5px solid rgb(94, 94, 94);
+    border-left: 5px solid lightgray;
+    outline: 2px solid black;
+    outline-offset: -2px;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0 rgb(92, 92, 92);
+    font-size: small;
+}
+
+.contact-form button:hover{
+    outline: 3px solid white;
+    background: #bcbcbc;
+    cursor: pointer;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline: 2px solid white;
+}
+
+/* Login MUI */
+
+.login-MUI{
+    width: 100%;
+}
+
+.login-register-wrapper {
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-tabs {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  background-color: darkgray;
+  border-bottom: 3px solid #6E6E6C;
+  border-right: 3px solid #6E6E6C;
+  border-left: 3px solid white;
+  border-top: 3px solid white;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-shadow: 2px 2px 0 gray;
+  transition: background-color 0.2s;
+}
+
+.tab-button.active {
+  background-color: gray;
+  border-top: 3px solid #6E6E6C;
+  border-left: 3px solid #6E6E6C;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.tab-button:hover{
+    outline: 3px solid white;
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  align-items: baseline;
+  opacity: 1;
+  transition: 0.2s opacity ease-in-out ;
+}
+
+.form .active {
+  display: flex;
+  opacity: 0.2;
+}
+
+.form input {
+  width: 100%;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 0.5rem;
+  background-color: darkgray;
+  color: white;
+  border: 3px solid #6E6E6C;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  box-sizing: border-box;
+}
+
+.form button {
+    box-sizing: border-box;
+    font-family: 'Press Start 2p', monospace;
+    filter: drop-shadow(0 0 2px black);
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 1rem;
+    background: linear-gradient(to right, #6E6E6C , gray);
+    color: white;
+    border-bottom: 6px solid rgb(94, 94, 94);
+    border-top: 5px solid lightgray;
+    border-right:5px solid rgb(94, 94, 94);
+    border-left: 5px solid lightgray;
+    outline: 2px solid black;
+    outline-offset: -2px;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0 rgb(92, 92, 92);
+    font-size: small;
+}
+
+.form button:hover {
+  outline: 3px solid white;
+  background-color: #bcbcbc;
+}
+
+.form input:focus, .form textarea{
+    outline: 2px solid white;
+}
+
+.form .login-description{
+    height: 96px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form img{
+    padding: 0;
+    z-index: -1;
+    margin-bottom: 20px;
+    margin-right: -24px;
+    width: 100px;
+}
+
+.form .login-description h3{
+    background-color: darkgray;
+    padding: 1rem;
+     border: 3px solid #6E6E6C;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+   color: white;
 }
