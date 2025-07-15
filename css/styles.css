@@ -396,7 +396,37 @@ main {
         filter: drop-shadow(0 0 4px black);
     }
 
+    .home-MUI .cats-image{
+        width: 100px;
+        position: absolute;
+        pointer-events: none;
+        left: 12.5px;
+        bottom: 155px;
+        transform: rotate(-10deg);
+        filter: drop-shadow(0 0 4px black);
+    }
+
+    .home-MUI .bee-image{
+        width: 100px;
+        position: absolute;
+        pointer-events: none;
+        right: 10px;
+        top: 0;
+        filter: drop-shadow(0 0 4px black);
+    }
+
+    .home-MUI .soul-lantern{
+        width: 45px;
+        position: absolute;
+        top: 138px;
+        left: 203.4px;
+        z-index: -100;
+        filter: drop-shadow(0 0 8px #3ff5f5) drop-shadow(0 0 12px #3ff5f5);
+    }
+
     .home-MUI h1{
+        position: relative;
+        z-index: -1;
         flex-grow: 1;
         width: 100%;
         margin: 0;
