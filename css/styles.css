@@ -349,9 +349,12 @@ main {
         filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
     }
     
-    .minecraftUI-top > div:last-child {
+    .minecraftUI-top > div:nth-child(5) {
         margin-right: 0;
-        margin-left: auto;   
+        margin-left: auto; 
+    }
+    .minecraftUI-top > div:last-child {
+        margin-left: 2px;
     }
 
     .minecraftUI-content{
