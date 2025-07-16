@@ -42,7 +42,7 @@
         </nav>
     </header>
     <main>
-        <video autoplay loop playsinline muted class="background-hero" width="100%">
+        <video autoplay loop muted playsinline class="background-hero" width="100%">
             <source src="assets/Minecraft Fox Night.webm" type="video/webm">
         </video>
         <section id="hero-section">
@@ -53,6 +53,7 @@
                     <div class="minecraftUI-about" id="ui-about" data-tooltip="About"><i class="fa-solid fa-address-card"></i></div>
                     <div class="minecraftUI-services" id="ui-services" data-tooltip="Services"><i class="fa-solid fa-toolbox"></i></div>
                     <div class="minecraftUI-contact" id="ui-contact" data-tooltip="Contact"><i class="fa-solid fa-phone"></i></div>
+                    <div class="minecraftUI-settings" id="ui-settings" data-tooltip="Settings"><i class="fa-solid fa-gear"></i></div>
                     <div class="minecraftUI-login" id="ui-login" data-tooltip="Login"><i class="fa-solid fa-user-plus"></i></div>
                     <div class="minecraftUI-search" id="ui-search" data-tooltip="Search"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
@@ -118,6 +119,19 @@
                             </form>
                         </div>
                     </div>
+                    <div class="settings-MUI">
+                        <div class="settings-wrapper">
+                            <div class="settings-head"><h4>Customize Your Portal</h4></div>
+                            <div class="settings-content">
+                                <ul>
+                                    <li><div class="anchor-settings button-sound">Button Sound<img class="redstone-lantern" src="assets/LanternOff.webp" alt="Redstone Lamp Off Minecraft"></div><div class="lever-container"><img src="assets/LeverOff.png" alt="Minecraft Lever Off" class="lever" data-state="off"></div></li>
+                                    <li><div class="anchor-settings dark-mode">Dark Mode<img class="redstone-lantern" src="assets/LanternOff.webp" alt="Redstone Lamp Off Minecraft"></div><div class="lever-container"><img src="assets/LeverOff.png" alt="Minecraft Lever Off" class="lever" data-state="off"></div></li>
+                                    <li><div class="anchor-settings minecraft-music">Ambience Music<img class="redstone-lantern" src="assets/LanternOff.webp" alt="Redstone Lamp Off Minecraft"></div><div class="lever-container"><img src="assets/LeverOff.png" alt="Minecraft Lever Off" class="lever" data-state="off"></div></li>
+                                    <li><div class="anchor-settings pause-background">Pause Background Video<img class="redstone-lantern" src="assets/LanternOff.webp" alt="Redstone Lamp Off Minecraft"></div><div class="lever-container"><img src="assets/LeverOff.png" alt="Minecraft Lever Off" class="lever" data-state="off"></div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                         <div class="login-MUI">                
                             <div class="login-register-wrapper">
                                 <div class="login-tabs">
@@ -152,8 +166,14 @@
                             </div>
                     </div>
                     <div class="search-MUI">
+                        <div class="search-wrapper">
                         <div class="head-search">
-                            <h4>Search Through The Portal</h4>
+                            <h4>Portal Search</h4>
+                           <label for="search-input"><i class="fa-solid fa-compass"></i> <input type="text" placeholder="Search Blogs, Reviews..." id="search-input"></label> 
+                        </div>
+                        <div class="search-content">
+
+                        </div>
                         </div>
                     </div>
                     </div>

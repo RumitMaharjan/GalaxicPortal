@@ -63,9 +63,9 @@ serviceSlot.forEach(e=>{
 
 
  //Play minecraft button sound
-
+ const minecraftButtonSound = new Audio('assets/minecraft_click.mp3');
+minecraftButtonSound.muted = true;
  function minecraftButtonClick(){ 
-    const minecraftButtonSound = new Audio('assets/minecraft_click.mp3');
     minecraftButtonSound.currentTime = 0.5;
     minecraftButtonSound.play();
  }
@@ -91,4 +91,154 @@ registerTab.addEventListener("click",()=>{
     registerTab.classList.add("active");
 })
 
+
+// Turn on the Lever in Settings 
+
+const levers = document.querySelectorAll(".lever");
+const settingsButton = document.querySelectorAll(".anchor-settings");
+
+document.addEventListener("DOMContentLoaded",()=>{
+    const knownSettings = ["button-sound","dark-mode","minecraft-music","pause-background"];
+    if (localStorage.getItem("button-sound") === null) {
+    localStorage.setItem("button-sound", "true");
+    }
+    knownSettings.forEach(setting=>{
+        const savedState = localStorage.getItem(setting);
+        if(savedState=="true"){
+            const lever = document.querySelector(`.anchor-settings.${setting}`)?.closest("li")?.querySelector(".lever");
+            if(lever) toggleLever(lever);
+        }
+    });
+});
+
+settingsButton.forEach(link=>{
+    link.addEventListener("click", ()=>{
+        const listItem = link.closest("li");
+        if(!listItem) return;
+        const lever = listItem.querySelector(".lever");
+        if(lever){
+            toggleLever(lever, link);
+        }
+    });
+});
+
+levers.forEach(img =>{
+    img.addEventListener("click", ()=>{
+            toggleLever(img);
+    });
+});
  
+function toggleLever(img, link){
+    minecraftButtonClick();
+        const isOff = img.getAttribute("data-state")==="off";
+        img.src = isOff? 'assets/LeverOn.png' : 'assets/LeverOff.png';
+        img.setAttribute('data-state',isOff?'on':'off');
+        img.classList.toggle('active');
+        const listItem = img.closest("li");
+        const lamp = listItem.querySelector(".redstone-lantern");
+
+        if(lamp){
+            lamp.src = isOff? "assets/LanternOn.png": "assets/LanternOff.webp";
+            lamp.classList.toggle("glow-lamp", isOff);
+        }
+        const knownSettings = ["button-sound","dark-mode","minecraft-music","pause-background"];
+        
+       let classList;
+        if(link){
+              classList = link.classList;
+        }
+        else{
+            link = lamp.closest("div").classList;
+            classList= link;
+        }
+        knownSettings.forEach(settings=>{
+            if(classList.contains(settings)){
+                applySettingFunctionality(settings, isOff);
+            }
+        });
+}
+
+function applySettingFunctionality(settingClass, isOn){
+    switch(settingClass){
+        case "button-sound":
+            minecraftButtonSound.muted = !isOn;
+            break;
+
+        case "dark-mode":
+            console.log("Dark Mode toggled: ", isOn);
+            break;
+        case "minecraft-music":
+             if (isOn) {
+                musicPlayer.play();
+            } else {
+                musicPlayer.pause();
+            }
+            break;
+        case "pause-background":
+                if (isOn) {
+                    backgroundHero.pause();
+                } else {
+                    backgroundHero.play();
+                }
+                localStorage.setItem("videoPaused", isOn);
+            break;
+    }
+    localStorage.setItem(settingClass, isOn);  
+}
+
+// Music Player
+
+let backgroundMusic = new Audio();
+let musicPlayer = new Audio();
+musicPlayer.volume = 0.5;
+let currentTrackIndex = 0;
+
+const musics = [
+  "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
+  "musics/Moonlight Magic - Asher Fulero.mp3",
+  "musics/Sleep Music No. 1 - Chris Haugen.mp3",
+  "musics/Tiburtina - Schwartzy.mp3"
+];
+
+const savedIndex = localStorage.getItem("musicIndex");
+const savedTime = localStorage.getItem("musicTime");
+const backgroundHero = document.querySelector(".background-hero");
+
+if(savedIndex!== null){
+    currentTrackIndex = parseInt(savedIndex);
+    musicPlayer.src = musics[currentTrackIndex];
+}
+                
+musicPlayer.onended = () => {
+    currentTrackIndex = (currentTrackIndex + 1) % musics.length;
+    musicPlayer.src = musics[currentTrackIndex];
+    musicPlayer.play();
+};
+
+window.addEventListener("click", () => {
+  const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
+  if (isMusicEnabled && musicPlayer.paused) {
+    musicPlayer.currentTime = savedTime;
+    musicPlayer.play();
+  }
+});
+
+window.addEventListener("load",()=>{
+    const savedTime = parseInt(localStorage.getItem("videoTime"))||0;
+    const wasPaused = localStorage.getItem("videoPaused")==="true";
+
+    backgroundHero.currentTime = savedTime;
+
+    if(!wasPaused){
+        backgroundHero.play().catch(()=>{
+            console.log("Autoplay blocked; user interaction needed.");
+        });
+    }
+})
+
+
+window.addEventListener("beforeunload", () => {
+  localStorage.setItem("musicIndex", currentTrackIndex);
+  localStorage.setItem("musicTime", musicPlayer.currentTime);
+  localStorage.setItem("videoTime", backgroundHero.currentTime);
+});
