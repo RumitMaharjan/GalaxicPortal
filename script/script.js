@@ -66,6 +66,7 @@ serviceSlot.forEach(e=>{
  const minecraftButtonSound = new Audio('assets/minecraft_click.mp3');
 minecraftButtonSound.muted = true;
  function minecraftButtonClick(){ 
+    minecraftButtonSound.volume = 1;
     minecraftButtonSound.currentTime = 0.5;
     minecraftButtonSound.play();
  }
@@ -161,6 +162,7 @@ function toggleLever(img, link){
 function applySettingFunctionality(settingClass, isOn){
     switch(settingClass){
         case "button-sound":
+            minecraftButtonSound.volume = 0;
             minecraftButtonSound.muted = !isOn;
             break;
 
@@ -169,6 +171,7 @@ function applySettingFunctionality(settingClass, isOn){
             break;
         case "minecraft-music":
              if (isOn) {
+                musicPlayer.currentTime = savedTime;
                 musicPlayer.play();
             } else {
                 musicPlayer.pause();
@@ -188,7 +191,6 @@ function applySettingFunctionality(settingClass, isOn){
 
 // Music Player
 
-let backgroundMusic = new Audio();
 let musicPlayer = new Audio();
 musicPlayer.volume = 0.5;
 let currentTrackIndex = 0;
@@ -200,8 +202,8 @@ const musics = [
   "musics/Tiburtina - Schwartzy.mp3"
 ];
 
-const savedIndex = localStorage.getItem("musicIndex");
-const savedTime = localStorage.getItem("musicTime");
+const savedIndex = localStorage.getItem("musicIndex")|| 0;
+const savedTime = localStorage.getItem("musicTime")|| 0;
 const backgroundHero = document.querySelector(".background-hero");
 
 if(savedIndex!== null){
@@ -215,6 +217,13 @@ musicPlayer.onended = () => {
     musicPlayer.play();
 };
 
+window.addEventListener("load", () => {
+  const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
+  if (isMusicEnabled && musicPlayer.paused) {
+    musicPlayer.currentTime = savedTime;
+    musicPlayer.play();
+  }
+});
 window.addEventListener("click", () => {
   const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
   if (isMusicEnabled && musicPlayer.paused) {
@@ -242,3 +251,4 @@ window.addEventListener("beforeunload", () => {
   localStorage.setItem("musicTime", musicPlayer.currentTime);
   localStorage.setItem("videoTime", backgroundHero.currentTime);
 });
+

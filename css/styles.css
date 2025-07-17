@@ -7,7 +7,6 @@ html,body{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     max-width: 100vw;
 }
 
@@ -147,7 +146,7 @@ header {
 /* Bar Settings*/
 
 #bar-settings{
-    display: flex;
+    display: none;
     gap: 2px;
     padding: 1rem;
     padding-top: 0;
@@ -192,6 +191,7 @@ header {
 }
 
 #bar-settings.show {
+    display: flex;
     opacity: 1;
     transform: translateX(0%);
     pointer-events: auto;

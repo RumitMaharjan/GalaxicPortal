@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Rojita Manandhar, Rumit Maharjan" />
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/blogs.css" />
+  <title>Galaxic Portal - Blog</title>
+</head>
+<body>
+<div class="bg-overlay"></div>
+  <header>
+    <nav class="navbar">
+      <div id="nav-logo">
+        <img src="Galaxic Portal Logos/GalaxicPortal Logo T-Webicon.png" alt="Galaxic Portal Logo" />
+      </div>
+      <div id="nav-links">
+        <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#"><i class="fa-solid fa-cube"></i> Minecraft</a>
+        <a href="#"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+        <a href="#"><i class="fa-solid fa-star"></i> Reviews</a>
+        <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
+      </div>
+      <div id="nav-settings">
+        <i id="bar" class="fa-solid fa-bars"></i>
+      </div>
+      <div id="bar-settings">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#"><i class="fa-solid fa-cube"></i> Minecraft</a>
+        <a href="#"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+        <a href="#"><i class="fa-solid fa-star"></i> Reviews</a>
+        <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
+        <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      </div>
+    </nav>
+  </header>
+    <section class="blog-container">
+      <div class="blog-header">
+        <h1>Galaxic Blog Portal</h1>
+        <p>Latest thoughts, guides, and discoveries</p>
+      </div>
+      <div class="blog-grid">
+        <div class="leftcolumn">
+          <div class="card">
+            <h2>First Blog Title</h2>
+            <h5>Intro to the blog world <span class="timestamp">| July 17, 2025</span></h5>
+            <div class="blogImage-container"><img class="blogImage" src="assets/alex.webp" alt="Blog Image" /></div>
+            <p>Some text about the blog content...</p>
+          </div>
+          <div class="card">
+            <h2>Second Blog Title</h2>
+            <h5>Continuing the journey <span class="timestamp">| July 17, 2025</span></h5>
+            <div class="blogImage-container"><img class="blogImage" src="assets/steve.png" alt="Blog Image" /></div>
+            <p>Some more text with valuable info...</p>
+          </div>
+        </div>
+        <aside class="rightcolumn">
+          <div class="card">
+            <h3>About Me</h3>
+            <div class="blogImage-container"><img src="assets/LanternBlue.webp" alt="About Image" class="blogImage small" /></div>
+            <p>Some text about Galaxic Portal and the creators...</p>
+          </div>
+          <div class="card">
+            <h3>Popular Posts</h3>
+            <div class="blogImage-container"><img src="assets/HeroPortal.jpg" alt="Blog Image" class="blogImage small" /></div>
+            <div class="blogImage-container"><img src="assets/HeroPortal.jpg" alt="Blog Image" class="blogImage small" /></div>
+            <div class="blogImage-container"><img src="assets/HeroPortal.jpg" alt="Blog Image" class="blogImage small" /></div>
+          </div>
+          <div class="card">
+            <h3>Follow Us</h3>
+            <p>Socials coming soon!</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  <script src="script/script.js"></script>
+  <script>
+    const musicsBlog = [
+        "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
+        "musics/Moonlight Magic - Asher Fulero.mp3",
+        "musics/Sleep Music No. 1 - Chris Haugen.mp3",
+        "musics/Tiburtina - Schwartzy.mp3"
+    ];
+
+        const music = new Audio();
+        let currentTrack = parseInt(localStorage.getItem("musicIndex")) || 0;
+        const savedTimeBlog = parseFloat(localStorage.getItem("musicTime")) || 0;
+        const isMusicEnabled = localStorage.getItem("minecraft-music");
+
+        music.volume = 0.5;
+        music.src = musicsBlog[currentTrack];
+
+        music.addEventListener("loadedmetadata", () => {
+            music.currentTime = savedTimeBlog;
+
+            if (isMusicEnabled === "true") {
+                music.play();
+            }
+        });
+
+        music.onended = () => {
+            currentTrack = (currentTrack + 1) % musics.length;
+            music.src = musics[currentTrack];
+            music.play();
+        };
+
+        window.addEventListener("click", () => {
+        const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
+        if (isMusicEnabled && music.paused) {
+            music.currentTime = savedTimeBlog;
+            music.play();
+        }
+        });
+
+
+        window.addEventListener("beforeunload", () => {
+            localStorage.setItem("musicIndex", currentTrack);
+            localStorage.setItem("musicTime", music.currentTime);
+        });
+</script>
+</body>
+</html>
