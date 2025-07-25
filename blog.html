@@ -103,8 +103,8 @@
         });
 
         music.onended = () => {
-            currentTrack = (currentTrack + 1) % musics.length;
-            music.src = musics[currentTrack];
+            currentTrack = (currentTrack + 1) % musicsBlog.length;
+            music.src = musicsBlog[currentTrack];
             music.play();
         };
 

@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    --dark-color: #0f0f1e;
+    --extra-color:  #00ffcc;
+}
+nav img{
+    box-sizing: content-box;
+}
+
+.page-content{
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom: 2px solid white;
+}
+
+.minecraft-environment{
+    position: absolute;
+    z-index: -1000;
+    width: 100%;
+    height: 100vh;
+    bottom: 0;
+}
+.enderman{
+    position: absolute;
+    right: 0;
+    top: 61vh;
+    z-index: 1000;
+    width: 150px;
+    height: auto;
+}
+.steve{
+    width: 100px;
+    position: absolute;
+    top: 64vh;
+    z-index: 100;
+    left: 100px;
+    transform: rotateY(180deg);
+}
+.alex{
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: 64vh;
+    left: 0;
+    z-index: 100;
+}
+.stone{
+    position: relative;
+    top: 90vh;
+    width: 100%;
+    height: 10vh;
+    background:url("../assets/stone.webp");
+    background-size: contain;
+}
+.tree{
+    position: absolute;
+    width: 200px;
+    top: 52.5vh;
+    left: 500px;
+    filter: drop-shadow(0 0 5px black);
+}   
+.grass{
+    position: relative;
+    top: 70vh;
+    height: 10vh;
+    width: 100%;
+    background: url(https://i.pinimg.com/564x/a4/32/43/a43243c7a362f1dc13108b1e2eac7a09.jpg);
+    background-size: contain;
+}
+
+
+
+.page-title{
+    margin-top: 8rem;
+    width: 50%;
+    background-color: darkgray;
+    background: url("https://i.pinimg.com/474x/80/5c/1c/805c1c8d192968df86bd059f9ba26e72.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: fill;
+    text-shadow: 4px 4px 0 black;
+    letter-spacing: 1px;
+    border-bottom: 3px solid white;
+    border-top: 3px solid #6E6E6C;
+    border-right:3px solid white;
+    border-left: 3px solid #6E6E6C;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    filter: drop-shadow(0 0 5px rgb(81, 53, 27));
+    font-size: 1.5rem;
+}
+
+.page-description{
+    color:white;
+    width: 50%;
+    background-color: darkgray;
+    background: url("../assets/stone.webp");
+    background-position: center;
+    text-shadow: 2px 2px 0 black;
+    letter-spacing: 1px;
+    border-bottom: 3px solid white;
+    border-top: 3px solid #6E6E6C;
+    border-right:3px solid white;
+    border-left: 3px solid #6E6E6C;
+    padding: 1rem;
+    text-align: center;
+    filter: drop-shadow(0 0 5px gray);
+    line-height: 1.5rem;
+    background-repeat: repeat;
+    background-size: contain;
+}

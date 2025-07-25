@@ -273,7 +273,7 @@ function showSlides() {
     if (currentSlide) currentSlide.style.display = "flex";
     if (currentDot) currentDot.classList.add("dot-active");
 
-    setTimeout(showSlides, 4000);
+    setTimeout(showSlides, 5000);
 }
 
 document.addEventListener("DOMContentLoaded", showSlides);
