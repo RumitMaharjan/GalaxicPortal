@@ -19,6 +19,7 @@ header {
   position: sticky;
   z-index: 1000;
   top: 0;
+  border-bottom: 1px solid var(--extra-color);
 }
 
 .navbar{
@@ -225,239 +226,388 @@ main {
   pointer-events: none;
 }
 
+#hero-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 5rem;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.hero-main{
+    gap: 2rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Right Banner */
+
+.right-banner{
+    margin-right:10rem;
+    display: flex;
+    width: 600px;
+    height: 400px;
+    margin-top: 6rem;
+    background-color:lightgray;
+    border-right: 8px solid gray;
+    border-bottom: 8px solid gray;
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+    outline: 2px solid black;
+    outline-offset: -1px;
+    box-shadow: 0 4px 8px white;
+}
+
+.banner{
+    display: none;
+    width: 95%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: -4rem;
+    background-color:lightgray;
+    border-right: 8px solid gray;
+    border-bottom: 8px solid gray;
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+    outline: 2px solid black;
+    outline-offset: -1px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px black;
+}
+
+.banner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Press Start 2P',monospace;
+}
+
+.welcome-banner{
+    background: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/9bc27292880429.5e569ff84e4d0.gif);
+}
+
+.about-banner{
+    background: url(https://i.pinimg.com/originals/08/0a/81/080a81cfed17d54cf828093a4d69757d.gif);
+}
+
+.explore-banner{
+    background:url(https://64.media.tumblr.com/b04468e7540dfca85fe9c13e241e1d61/c055d9533e4c2789-31/s1280x1920/9ec4dfda6a7bf824733baba0d10681f4e397a61a.gif);
+}
+
+.details-banner{
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    box-shadow: 0 2px 4px white;
+    line-height: 2rem;
+}
+
+.slides{
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    outline: 2px solid var(--extra-color);
+    outline-offset: -2px;
+    padding: 1rem;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: none;
+  transition: background-color 0.6s ease;
+}
+
+.dot-active {
+  background-color: #717171;
+}
+
+.r-slides{
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    outline: 2px solid var(--extra-color);
+    outline-offset: -2px;
+}
+
+
+.right-banner .r-dot {
+  height: 10px;
+  width: 10px;
+  margin: 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.right-banner .dot-active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
 /* Minecraft UI */
 
-    #hero-section {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 2rem 5rem;
-      color: white;
-      text-align: center;
-      overflow: hidden;
-      background-color: rgba(0, 0, 0, 0.4);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+.minecraftUI{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    min-height: 400px; 
+    max-height: 400px;
+    animation: minecraftUIanimate forwards 1s;
+}
 
-    .minecraftUI{
-        display: flex;
-        flex-direction: column;
-        width: 450px;
-        min-height: 400px; 
-        max-height: 400px;
-         animation: minecraftUIanimate forwards 2s;
-    }
+#minecraft-tooltip {
+    position: fixed;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    white-space: nowrap;
+    border: 2px solid rgb(37, 0, 37);
+    box-shadow: 2px 2px 0 rgb(24, 0, 24);
+    image-rendering: pixelated;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
 
-    #minecraft-tooltip {
-        position: fixed;
-        background-color: black;
-        color: white;
-        padding: 4px 8px;
-        font-family: 'Press Start 2P', monospace;
-        font-size: 10px;
-        white-space: nowrap;
-        border: 2px solid rgb(37, 0, 37);
-        box-shadow: 2px 2px 0 rgb(24, 0, 24);
-        image-rendering: pixelated;
-        pointer-events: none;
-        z-index: 9999;
+
+@keyframes minecraftUIanimate{
+    0%{
         opacity: 0;
-        transition: opacity 0.1s ease-in-out;
+        transform: translateX(-50%);
     }
- 
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
 
-    @keyframes minecraftUIanimate{
-        0%{
-            opacity: 0;
-            transform: translateX(-50%);
-        }
-        100%{
-            opacity: 1;
-            transform: translateX(0%);
-        }
+.minecraftUI-top{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 2.5rem;
+    color: black;
+    align-items: center;
+    animation: minecraftUIanimateTop forwards 1s;
+}
+@keyframes minecraftUIanimateTop{
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
     }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
 
-    .minecraftUI-top{
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 2.5rem;
-        color: black;
-        align-items: center;
-        animation: minecraftUIanimateTop forwards 2s;
-    }
-    @keyframes minecraftUIanimateTop{
-        0%{
-            opacity: 0;
-            transform: translateY(50%);
-        }
-        100%{
-            opacity: 1;
-            transform: translateY(0%);
-        }
-    }
+.minecraftUI-content{
+    min-height: 400px; 
+    max-height: 400px;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    border-radius: 0px 0px 8px 8px;
+    background-color:lightgray;
+    border-right: 8px solid gray;
+    border-bottom: 8px solid gray;
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+    outline: 2px solid black;
+    outline-offset: -1px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+}
 
-    .minecraftUI-content{
-        min-height: 400px; 
-        max-height: 400px;
-        position: relative;
-        z-index: 1;
-        flex-grow: 1;
-        border-radius: 0px 0px 8px 8px;
-        background-color:lightgray;
-        border-right: 8px solid gray;
-        border-bottom: 8px solid gray;
-        border-top: 8px solid white;
-        border-left: 8px solid white;
-        outline: 2px solid black;
-        outline-offset: -1px;
-        font-family: 'Press Start 2P', monospace;
-        font-size: 12px;
-    }
+.minecraftUI-top > div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2.5rem;
+    background-color: darkgray;
+    border-right: 8px solid gray;
+    border-bottom: 8px solid gray;
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+    outline: 2px solid black;
+    outline-offset: -1px;
+    border-radius: 8px 8px 0 0;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+    margin-right: 5px;
+    padding-bottom: 6px;
+    text-shadow: 2px 2px 0 gray;
+}
 
-    .minecraftUI-top > div {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2rem;
-        height: 2.5rem;
-        background-color: darkgray;
-        border-right: 8px solid gray;
-        border-bottom: 8px solid gray;
-        border-top: 8px solid white;
-        border-left: 8px solid white;
-        outline: 2px solid black;
-        outline-offset: -1px;
-        border-radius: 8px 8px 0 0;
-        color: black;
-        cursor: pointer;
-        user-select: none;
-        transition: background-color 0.2s ease;
-        margin-right: 5px;
-        padding-bottom: 6px;
-        text-shadow: 2px 2px 0 gray;
-    }
+.minecraftUI-top>div>i{
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
+}
 
-    .minecraftUI-top>div>i{
-        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
-    }
-    
-    .minecraftUI-top > div:nth-child(6) {
-        margin-right: 5px;
-        margin-left: auto; 
-    }
-    .minecraftUI-top > div:last-child {
-        margin-left: 2px;
-    }
+.minecraftUI-top > div:nth-child(6) {
+    margin-right: 5px;
+    margin-left: auto; 
+}
+.minecraftUI-top > div:last-child {
 
-    .minecraftUI-content{
-        display: flex;
-        justify-content: center;
-    }
+    margin-right: 0;
+}
 
-    .minecraftUI-content>div{
-        display: none;
-        transition: opacity 0.2s ease-in-out;
-    }
+.minecraftUI-content{
+    display: flex;
+    justify-content: center;
+}
 
-    .minecraftUI-content .active{
-        display: flex;
-    }
+.minecraftUI-content>div{
+    display: none;
+    transition: opacity 0.2s ease-in-out;
+}
 
-    .minecraftUI-top .active{
-        background-color: lightgray;
-    }
+.minecraftUI-content .active{
+    display: flex;
+}
 
-    /* Home MUI */
+.minecraftUI-top .active{
+    background-color: lightgray;
+}
 
-    .home-MUI{
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        padding: 1rem 2rem;
-        color: white;
-    }
+/* Home MUI */
 
-    .home-MUI .wolves-image{
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        pointer-events: none;
-        right: 12.5px;
-        bottom: 155px;
-        filter: drop-shadow(0 0 4px black);
-    }
+.home-MUI{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: white;
+}
 
-    .home-MUI .cats-image{
-        width: 100px;
-        position: absolute;
-        pointer-events: none;
-        left: 12.5px;
-        bottom: 155px;
-        transform: rotate(-10deg);
-        filter: drop-shadow(0 0 4px black);
-    }
+.home-MUI .wolves-image{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    pointer-events: none;
+    right: 12.5px;
+    bottom: 155px;
+    filter: drop-shadow(0 0 4px black);
+}
 
-    .home-MUI .bee-image{
-        width: 100px;
-        position: absolute;
-        pointer-events: none;
-        right: 10px;
-        top: 0;
-        filter: drop-shadow(0 0 4px black);
-    }
+.home-MUI .cats-image{
+    width: 100px;
+    position: absolute;
+    pointer-events: none;
+    left: 12.5px;
+    bottom: 155px;
+    transform: rotate(-10deg);
+    filter: drop-shadow(0 0 4px black);
+}
 
-    .home-MUI .soul-lantern{
-        width: 45px;
-        position: absolute;
-        top: 138px;
-        left: 203.4px;
-        z-index: -100;
-        filter: drop-shadow(0 0 8px #3ff5f5) drop-shadow(0 0 12px #3ff5f5);
-    }
+.home-MUI .bee-image{
+    width: 100px;
+    position: absolute;
+    pointer-events: none;
+    right: 10px;
+    top: 0;
+    filter: drop-shadow(0 0 4px black);
+}
 
-    .home-MUI h1{
-        position: relative;
-        z-index: -1;
-        flex-grow: 1;
-        width: 100%;
-        margin: 0;
-        font-size: 2.5em;
-        text-align: left;
-        padding: 1rem;
-        background-color: darkgray;
-        word-spacing: -0.5rem;
-        letter-spacing: -1px;
-        line-height: 3rem;
-        border-bottom: 3px solid white;
-        border-top: 3px solid #6E6E6C;
-        border-right:3px solid white;
-        border-left: 3px solid #6E6E6C;
-        text-shadow: 4px 4px 0 gray;
-    }
-    .home-MUI h2{
-        width: 100%;
-        font-size: 1.5em;
-        text-align: left;
-        padding: 1rem;
-        background-color: darkgray;
-        word-spacing: -0.5rem;
-        letter-spacing: -1px;
-        border-bottom: 3px solid white;
-        border-top: 3px solid #6E6E6C;
-        border-right:3px solid white;
-        border-left: 3px solid #6E6E6C;
-        text-shadow: 4px 4px 0 gray;
-    }
+.home-MUI .soul-lantern{
+    width: 45px;
+    position: absolute;
+    top: 138px;
+    left: 203.4px;
+    z-index: -100;
+    filter: drop-shadow(0 0 8px #3ff5f5) drop-shadow(0 0 12px #3ff5f5);
+}
+
+.home-MUI h1{
+    position: relative;
+    z-index: -1;
+    flex-grow: 1;
+    width: 100%;
+    margin: 0;
+    font-size: 2.5em;
+    text-align: left;
+    padding: 1rem;
+    background-color: darkgray;
+    word-spacing: -0.5rem;
+    letter-spacing: -1px;
+    line-height: 3rem;
+    border-bottom: 3px solid white;
+    border-top: 3px solid #6E6E6C;
+    border-right:3px solid white;
+    border-left: 3px solid #6E6E6C;
+    text-shadow: 4px 4px 0 gray;
+}
+.home-MUI h2{
+    width: 100%;
+    font-size: 1.5em;
+    text-align: left;
+    padding: 1rem;
+    background-color: darkgray;
+    word-spacing: -0.5rem;
+    letter-spacing: -1px;
+    border-bottom: 3px solid white;
+    border-top: 3px solid #6E6E6C;
+    border-right:3px solid white;
+    border-left: 3px solid #6E6E6C;
+    text-shadow: 4px 4px 0 gray;
+}
 
 .home-MUI .homeButton-MUI{
     filter: drop-shadow(0 0 2px black);
@@ -486,7 +636,7 @@ main {
 }
 
 
-@media (max-width: 747px) {
+@media (max-width: 1125px) {
     .background-hero{
         object-fit: cover;
     }
@@ -500,6 +650,15 @@ main {
     #hero-section{
         height: 600px;
         padding: 1rem 0;
+    }
+    .right-banner{
+        display: none;
+    }
+    .banner{
+        display: flex;
+    }
+    .dot{
+        display: inline-block;
     }
 }
 
@@ -568,6 +727,39 @@ main {
     border-top: 3px solid #6E6E6C;
     border-right:3px solid white;
     border-left: 3px solid #6E6E6C;
+}
+
+@media (max-width: 500px){
+    .about-descriptions{
+        font-size: 0.8em;
+    }
+    .minecraftUI{
+        width: 360px;
+        margin: 0 auto;
+    }
+    .minecraftUI-top{
+        max-width: 360px;
+    }
+    .hero-main{
+        justify-content: center;
+    }
+    .home-MUI h2{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .home-MUI .cats-image, .home-MUI .wolves-image{
+        bottom: 140px;
+    }
+    .home-MUI .soul-lantern{
+        left: 160.5px;
+        width: 40px;
+    }
+    .home-MUI h1{
+        font-size: 1.5rem;
+    }
+    .contact-wrapper h2{
+        font-size: 1rem;
+    }
 }
 
 /* Services MUI */
@@ -771,6 +963,7 @@ main {
   align-items: baseline;
   opacity: 1;
   transition: 0.2s opacity ease-in-out ;
+  overflow: hidden;
 }
 
 .form .active {
@@ -926,7 +1119,7 @@ main {
 }
 
 /* Settings MUI */
-/* Updated Settings MUI */
+
 
 .settings-MUI {
   width: 100%;
