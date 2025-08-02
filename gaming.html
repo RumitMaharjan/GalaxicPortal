@@ -19,8 +19,8 @@
       </div>
       <div id="nav-links">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="minecraft.html" class="active"><i class="fa-solid fa-cube"></i> Minecraft</a>
-        <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+        <a href="minecraft.html"><i class="fa-solid fa-cube"></i> Minecraft</a>
+        <a href="gaming.html" class="active"><i class="fa-solid fa-gamepad"></i> Gaming</a>
         <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
         <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
       </div>
@@ -30,7 +30,7 @@
       <div id="bar-settings">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
         <a href="minecraft.html"><i class="fa-solid fa-cube"></i> Minecraft</a>
-        <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+        <a href="gaming.html" class="active"><i class="fa-solid fa-gamepad"></i> Gaming</a>
         <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
         <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
         <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
@@ -41,7 +41,6 @@
 <main class="page-content">
   <h1 class="page-title">Gaming Zone</h1>
   <p class="page-description">Game guides, tips, FPS boosts, and modding tricks for all players.</p>
-
   <section class="card-grid">
     <div class="card">
       <h2>🎯 FPS Boost for Fortnite</h2>
@@ -57,7 +56,66 @@
     </div>
   </section>
 </main>
-
+ <footer>
+      <div class="footer-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="minecraft.html"><i class="fa-solid fa-cube"></i>Minecraft</a>
+        <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+        <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+        <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
+      </div>
+       <div class="minecraft-environment">
+          <img class="steve" src="assets/steve.png" alt="Steve">
+          <img class="alex" src="assets/alex.webp" alt="Alex">
+          <img class="enderman" src="../assets/EndermanCute.gif" alt="Enderman Cute">
+          <div class="stone"></div>
+          <div class="grass"></div>
+      </div>
+    </footer>
   <script src="script/script.js"></script>
+  <script>
+    const musicsBlog = [
+        "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
+        "musics/Moonlight Magic - Asher Fulero.mp3",
+        "musics/Sleep Music No. 1 - Chris Haugen.mp3",
+        "musics/Tiburtina - Schwartzy.mp3"
+    ];
+
+        const music = new Audio();
+        let currentTrack = parseInt(localStorage.getItem("musicIndex")) || 0;
+        const savedTimeBlog = parseFloat(localStorage.getItem("musicTime")) || 0;
+        const isMusicEnabled = localStorage.getItem("minecraft-music");
+
+        music.volume = 0.5;
+        music.src = musicsBlog[currentTrack];
+
+        music.addEventListener("loadedmetadata", () => {
+            music.currentTime = savedTimeBlog;
+
+            if (isMusicEnabled === "true") {
+                music.play();
+            }
+        });
+
+        music.onended = () => {
+            currentTrack = (currentTrack + 1) % musicsBlog.length;
+            music.src = musicsBlog[currentTrack];
+            music.play();
+        };
+
+        window.addEventListener("click", () => {
+        const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
+        if (isMusicEnabled && music.paused) {
+            music.currentTime = savedTimeBlog;
+            music.play();
+        }
+        });
+
+
+        window.addEventListener("beforeunload", () => {
+            localStorage.setItem("musicIndex", currentTrack);
+            localStorage.setItem("musicTime", music.currentTime);
+        });
+</script>
 </body>
 </html>

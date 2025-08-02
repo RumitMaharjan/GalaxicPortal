@@ -29,7 +29,7 @@
       </div>
       <div id="bar-settings">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="minecraft.html"><i class="fa-solid fa-cube"></i> Minecraft</a>
+        <a href="minecraft.html"  class="active"><i class="fa-solid fa-cube"></i> Minecraft</a>
         <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
         <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
         <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
@@ -37,33 +37,127 @@
       </div>
     </nav>
   </header>
-
   <main class="page-content">
     <h1 class="page-title">Minecraft Hub</h1>
     <p class="page-description">Discover the best settings, performance tweaks, and Minecraft secrets!</p>
-    <div class="minecraft-environment">
-        <img class="steve" src="assets/steve.png" alt="Steve">
-        <img class="alex" src="assets/alex.webp" alt="Alex">
-        <img class="tree" src="assets/tree.png" alt="Tree">
-        <img class="enderman" src="../assets/EndermanCute.gif" alt="Enderman Cute">
-        <div class="stone"></div>
-        <div class="grass"></div>
+    <div class="minecraft-POP">
+      <img role="button" onclick="goto()" src="assets/Minecraft.png" alt="Minecraft">
+      <a class="minecraft-button" role="button" onclick="goto()">Scroll Down <i class="fa-solid fa-arrow-down"></i></a>
     </div>
   </main>
-    <section class="card-grid">
+ <section class="card-grid" id="card-section">
+   <h2 class="master-minecraft" >Master Minecraft</h2>
       <div class="card">
-        <h2>🎮 Best Minecraft Settings (2025)</h2>
+        <img src="assets/FPS.png" alt="Minecraft FPS">
+         <div class="card-details">
+        <h3>Best Minecraft Settings (2025)</h3>
         <p>Boost FPS and reduce lag — even on low-end systems!</p>
+        </div>
       </div>
       <div class="card">
-        <h2>🔧 Fabric vs Forge</h2>
+        <img src="assets/FPS.png" alt="Minecraft FPS">
+        <div class="card-details">
+        <h3>Fabric vs Forge</h3>
         <p>Which mod loader is better for your style?</p>
+        </div>
       </div>
       <div class="card">
-        <h2>✨ Top 10 Shaders</h2>
+        <img src="assets/FPS.png" alt="Minecraft FPS">
+        <div class="card-details">
+        <h3>Top 10 Shaders</h3>
         <p>Our hand-picked shaders that won't melt your PC.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/FPS.png" alt="Minecraft FPS">
+         <div class="card-details">
+        <h3>Best Minecraft Settings (2025)</h3>
+        <p>Boost FPS and reduce lag — even on low-end systems!</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/FPS.png" alt="Minecraft FPS">
+         <div class="card-details">
+        <h3>Best Minecraft Settings (2025)</h3>
+        <p>Boost FPS and reduce lag — even on low-end systems!</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/FPS.png" alt="Minecraft FPS">
+         <div class="card-details">
+        <h3>Best Minecraft Settings (2025)</h3>
+        <p>Boost FPS and reduce lag — even on low-end systems!</p>
+        </div>
       </div>
     </section>
+    <footer>
+      <div class="footer-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="minecraft.html" class="active"><i class="fa-solid fa-cube"></i>Minecraft</a>
+        <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+        <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+        <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
+      </div>
+       <div class="minecraft-environment">
+          <img class="steve" src="assets/steve.png" alt="Steve">
+          <img class="alex" src="assets/alex.webp" alt="Alex">
+          <img class="enderman" src="../assets/EndermanCute.gif" alt="Enderman Cute">
+          <div class="stone"></div>
+          <div class="grass"></div>
+      </div>
+    </footer>
   <script src="script/script.js"></script>
+  <script>
+    const musicsBlog = [
+        "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
+        "musics/Moonlight Magic - Asher Fulero.mp3",
+        "musics/Sleep Music No. 1 - Chris Haugen.mp3",
+        "musics/Tiburtina - Schwartzy.mp3"
+    ];
+
+        const music = new Audio();
+        let currentTrack = parseInt(localStorage.getItem("musicIndex")) || 0;
+        const savedTimeBlog = parseFloat(localStorage.getItem("musicTime")) || 0;
+        const isMusicEnabled = localStorage.getItem("minecraft-music");
+
+        music.volume = 0.5;
+        music.src = musicsBlog[currentTrack];
+
+        music.addEventListener("loadedmetadata", () => {
+            music.currentTime = savedTimeBlog;
+
+            if (isMusicEnabled === "true") {
+                music.play();
+            }
+        });
+
+        music.onended = () => {
+            currentTrack = (currentTrack + 1) % musicsBlog.length;
+            music.src = musicsBlog[currentTrack];
+            music.play();
+        };
+
+        window.addEventListener("click", () => {
+        const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
+        if (isMusicEnabled && music.paused) {
+            music.currentTime = savedTimeBlog;
+            music.play();
+        }
+        });
+
+
+        window.addEventListener("beforeunload", () => {
+            localStorage.setItem("musicIndex", currentTrack);
+            localStorage.setItem("musicTime", music.currentTime);
+        });
+</script>
+  <script>
+      function goto(){
+       const section = document.getElementById("card-section");
+       if(section){
+        section.scrollIntoView({behavior: "smooth"});
+       }
+      }
+    </script>
 </body>
 </html>

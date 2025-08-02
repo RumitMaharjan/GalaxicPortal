@@ -3,83 +3,95 @@
     --dark-color: #0f0f1e;
     --extra-color:  #00ffcc;
 }
-nav img{
+nav img, #bar-settings a{
     box-sizing: content-box;
 }
 
 .page-content{
+  margin-top: 0.1rem;
+  width: 100%;
   font-family: 'Press Start 2P', monospace;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  justify-content: center;
   border-bottom: 2px solid white;
+  background: url(https://img.itch.zone/aW1nLzEzNzczMjU3LmdpZg==/original/W%2Fd8%2BO.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.minecraft-environment{
-    position: absolute;
-    z-index: -1000;
-    width: 100%;
-    height: 100vh;
-    bottom: 0;
-}
-.enderman{
-    position: absolute;
-    right: 0;
-    top: 61vh;
-    z-index: 1000;
-    width: 150px;
-    height: auto;
-}
-.steve{
-    width: 100px;
-    position: absolute;
-    top: 64vh;
-    z-index: 100;
-    left: 100px;
-    transform: rotateY(180deg);
-}
-.alex{
-    width: 80px;
-    height: auto;
-    position: absolute;
-    top: 64vh;
-    left: 0;
-    z-index: 100;
-}
-.stone{
+.minecraft-POP{
+    top: 8rem;
     position: relative;
-    top: 90vh;
-    width: 100%;
-    height: 10vh;
-    background:url("../assets/stone.webp");
-    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    animation: minecraftPopUp 1s forwards;
 }
-.tree{
-    position: absolute;
+
+@keyframes minecraftPopUp{
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 1;
+        translate: translateY(0%);
+    }
+}
+
+.minecraft-POP img{
     width: 200px;
-    top: 52.5vh;
-    left: 500px;
-    filter: drop-shadow(0 0 5px black);
-}   
-.grass{
     position: relative;
-    top: 70vh;
-    height: 10vh;
-    width: 100%;
-    background: url(https://i.pinimg.com/564x/a4/32/43/a43243c7a362f1dc13108b1e2eac7a09.jpg);
-    background-size: contain;
+    filter: drop-shadow(0 0 5px black);
+    cursor: pointer;
+    transition: all 0.1s ease;
 }
 
+.minecraft-button{
+    padding: 1rem 2rem;
+    border: none;
+    border-bottom: 6px solid rgb(94, 94, 94);
+    border-top: 5px solid lightgray;
+    border-right:5px solid rgb(94, 94, 94);
+    border-left: 5px solid lightgray;
+    outline: 2px solid black;
+    background:url("../assets/stone.webp");
+    outline-offset: -2px;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0 rgb(92, 92, 92);
+    background-position: center;
+    background-size: contain;
+    box-shadow: 0 2px 2px black;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.1s ease;
+}
+
+.minecraft-button .fa-arrow-down{
+    font-size: medium;
+}
+
+.minecraft-button:hover, .minecraft-POP img:hover{
+    transform: scale(1.1);
+}
 
 
 .page-title{
-    margin-top: 8rem;
     width: 50%;
     background-color: darkgray;
-    background: url("https://i.pinimg.com/474x/80/5c/1c/805c1c8d192968df86bd059f9ba26e72.jpg");
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvJmdfF1rbNy8hPiV7Y4Zk8LQq2DVII6vvbA&s");
     background-size: contain;
     background-repeat: repeat;
     background-position: center;
@@ -95,6 +107,7 @@ nav img{
     color: white;
     filter: drop-shadow(0 0 5px rgb(81, 53, 27));
     font-size: 1.5rem;
+    box-shadow: 0px 4px 2px black;
 }
 
 .page-description{
@@ -115,4 +128,107 @@ nav img{
     line-height: 1.5rem;
     background-repeat: repeat;
     background-size: contain;
+    box-shadow: 0px 4px 2px black;
 }
+
+@media (max-width: 727px){
+    .page-title{
+        font-size: 1rem;
+    }
+    .page-description{
+        font-size: 0.8rem;
+    }
+    .minecraft-POP{
+        top: 4rem; 
+        gap: 2rem;
+    }
+    .minecraft-POP img{
+        width: 150px;
+    }
+    .minecraft-button{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 500px){
+     .page-title{
+        font-size: 0.6rem;
+    }
+    .page-description{
+        font-size: 0.6rem;
+    }
+    .minecraft-POP img{
+        width: 100px;
+    }
+    .minecraft-button{
+        font-size: 0.6rem;
+    }
+}
+
+/* Card Section */
+.master-minecraft{
+      margin: 0 auto;
+      margin-bottom: 2rem;
+      padding: 0.5rem 0;
+      width: 100%;
+      text-align: center;
+      background-color: lightgray;
+      border-right: 8px solid gray;
+      border-bottom: 8px solid gray;
+      border-top: 8px solid white;
+      border-left: 8px solid white;
+      outline: 2px solid black;
+      outline-offset: -1px;
+      font-family: 'Press Start 2P', monospace;
+      color: white;
+      text-shadow: 4px 4px gray;
+      box-shadow: 2px 4px 4px white;
+}
+ .card-grid{
+      margin: 0 auto;
+      width: 80%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+    }
+    .card{
+      width: 300px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-right: 8px solid gray;
+      border-bottom: 8px solid gray;
+      border-top: 8px solid white;
+      border-left: 8px solid white;
+      outline: 2px solid black;
+      outline-offset: -1px;
+    }
+    .card img{
+      width: 100%;
+      border-bottom: 2px solid white;
+      height: 200px;
+      margin: 0;
+      padding: 0;
+    }
+    .card-details{
+      width: 100%;
+      flex-grow: 1;
+      padding: 0.5rem;
+      color: white;
+      background: darkgray;
+    }
+    .card h3{
+        margin-top: 0;
+        text-align: left;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px black;
+    }
+    .card p{
+      text-align: justify;
+      font-weight: bold;
+    }

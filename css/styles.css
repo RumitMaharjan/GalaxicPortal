@@ -210,26 +210,32 @@ header {
 /* Main */
 
 main {
-  position: relative;
-  top: -84.6px;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  cursor: crosshair;
+    position: relative;
+    top: -84.6px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: crosshair;
+    background: url("../assets/CherryBackground.gif");
+    background-position: center;
+    background-size: fill;
+    background-attachment: fixed;
+    z-index: 1;
+    border-bottom: 2px solid white;
 }
 
-.background-hero {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  object-fit: cover; 
-  z-index: -100;
-  background-color: black; 
-  pointer-events: none;
+main::after, main::before{
+     content: "";
+     position: absolute;
+     width: 100vw;
+     height: 100vh;
+     background-color: rgba(0, 0, 0, 0.1);
+     z-index: -1;
+     pointer-events: none;
 }
 
 #hero-section {
+    margin-top: -0.75rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -274,6 +280,7 @@ main {
     outline: 2px solid black;
     outline-offset: -1px;
     box-shadow: 0 4px 8px white;
+    text-shadow: 2px 2px 0 black;
 }
 
 .banner{
@@ -653,33 +660,6 @@ main {
 .home-MUI .homeButton-MUI:hover{
     outline: 3px solid white;
     cursor: pointer;
-}
-
-
-@media (max-width: 1125px) {
-    .background-hero{
-        object-fit: cover;
-    }
-    main{
-        height: 600px;
-    }
-    .minecraftUI{
-        margin: 0 auto;
-        padding: 0;
-    }
-    #hero-section{
-        height: 600px;
-        padding: 1rem 0;
-    }
-    .right-banner{
-        display: none;
-    }
-    .banner{
-        display: flex;
-    }
-    .dot{
-        display: inline-block;
-    }
 }
 
 /* Minecraft UI About */
@@ -1163,6 +1143,10 @@ main {
   align-items: center;
 }
 
+.settings-head h4{
+    text-shadow: 2px 2px 0 gray;
+}
+
 .settings-content {
   height: 100%;
   margin: 0 auto;
@@ -1270,4 +1254,233 @@ main {
 
 .lever.active {
   filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+}
+
+/* Filter */
+
+footer{
+    width: 100%;
+}
+
+.minecraft-environment{
+    position: relative;
+    z-index: -1000;
+    width: 100%;
+    height: 100vh;
+    bottom: 0;
+    overflow: hidden;
+}
+.enderman{
+    position: absolute;
+    right: 0;
+    top: 61vh;
+    z-index: 1000;
+    width: 150px;
+    height: auto;
+}
+.steve{
+    width: 100px;
+    position: absolute;
+    top: 64vh;
+    z-index: 100;
+    left: 100px;
+    transform: rotateY(180deg);
+}
+.alex{
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: 64vh;
+    left: 0;
+    z-index: 100;
+}
+.stone{
+    position: relative;
+    top: 90vh;
+    width: 100%;
+    height: 10vh;
+    background:url("../assets/stone.webp");
+    background-size: contain;
+}
+
+.stone::before {
+    position: absolute; 
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "© 2025 GalaxicPortal. All rights reserved.";
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.grass{
+    position: relative;
+    top: 70vh;
+    height: 10vh;
+    width: 100%;
+    background: url(https://i.pinimg.com/564x/a4/32/43/a43243c7a362f1dc13108b1e2eac7a09.jpg);
+    background-size: contain;
+}
+
+/* Social Media */
+
+.social-media{
+    margin-top: -2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-medias{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 50px;
+    height: 0px;
+    border: 2px solid gray;
+}
+
+.social-medias a{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    transition: all 0.3s ease-out;
+}
+
+.facebook{
+     border-radius: 50%;
+}
+
+.facebook:hover{
+    color: #1877F2;
+    background-color: white;
+    background-position: center;
+    transform: scale(1.4);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px #0a60d0);
+}
+
+.instagram:hover {
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: scale(1.4);
+  filter:  drop-shadow(0 0 5px rgba(255, 106, 0, 0.5));
+}
+
+.x-twitter{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.x-twitter:hover{
+    color: white;
+    transform: scale(1.4);
+    text-shadow: 2px 4px 0 black;
+    border-radius: 50%;
+    filter:  drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+.tiktok:hover{
+    color: cyan;
+    text-shadow: 2px 2px 0 red;
+    transform: scale(1.4);
+    filter:  drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+@media (max-width: 1125px) {
+    .background-hero{
+        object-fit: cover;
+    }
+    main{
+        height: 600px;
+    }
+    .minecraftUI{
+        margin: 0 auto;
+        padding: 0;
+    }
+    #hero-section{
+        height: 600px;
+        padding: 1rem 0;
+    }
+    .right-banner{
+        display: none;
+    }
+    .banner{
+        display: flex;
+    }
+    .dot{
+        display: inline-block;
+    }
+    .social-media{
+        margin-top: 2rem;
+    }
+}
+
+/*Footer*/
+
+.footer-links{
+    box-sizing: border-box;
+    display: flex;
+    width: 300px;
+    height: 250px;
+    background-color: lightgray;
+    border: 6px solid gray;
+    border-left:6px solid white;
+    border-top:6px solid white;
+    padding: 1rem;
+    position: relative;
+    top: 730px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: start;
+    outline: 2px solid black;
+}
+
+
+.footer-links a{
+    box-sizing: border-box;
+    display: flex;
+    gap: 1rem;
+    font-size: small;
+    align-items: center;
+    font-family: 'Press Start 2P', monospace;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    flex-grow: 1;
+    padding: 0 1rem;
+    background-color: darkgray;
+    border-bottom: 3px solid white;
+    border-top: 3px solid #6E6E6C;
+    border-right:3px solid white;
+    border-left: 3px solid #6E6E6C;
+    text-shadow: 2px 2px 0 gray;
+    transition: 0.4s ease;
+}
+
+.footer-links a:hover{
+    background-color: var(--dark-color);
+    color: var(--extra-color);
+    text-shadow: 2px 2px black;
+}
+
+@media  (max-width: 500px) {
+    .footer-links{
+        width: 250px;
+        height: 200px;
+    }
 }
