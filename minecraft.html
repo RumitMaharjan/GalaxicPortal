@@ -37,7 +37,7 @@
       </div>
     </nav>
   </header>
-  <main class="page-content">
+  <main class="page-content"  style="background: url('https://i.redd.it/4ec77oea73c41.gif'); background-size:cover;">
     <h1 class="page-title">Minecraft Hub</h1>
     <p class="page-description">Discover the best settings, performance tweaks, and Minecraft secrets!</p>
     <div class="minecraft-POP">
@@ -47,48 +47,6 @@
   </main>
  <section class="card-grid" id="card-section">
    <h2 class="master-minecraft" >Master Minecraft</h2>
-      <div class="card">
-        <img src="assets/FPS.png" alt="Minecraft FPS">
-         <div class="card-details">
-        <h3>Best Minecraft Settings (2025)</h3>
-        <p>Boost FPS and reduce lag — even on low-end systems!</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/FPS.png" alt="Minecraft FPS">
-        <div class="card-details">
-        <h3>Fabric vs Forge</h3>
-        <p>Which mod loader is better for your style?</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/FPS.png" alt="Minecraft FPS">
-        <div class="card-details">
-        <h3>Top 10 Shaders</h3>
-        <p>Our hand-picked shaders that won't melt your PC.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/FPS.png" alt="Minecraft FPS">
-         <div class="card-details">
-        <h3>Best Minecraft Settings (2025)</h3>
-        <p>Boost FPS and reduce lag — even on low-end systems!</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/FPS.png" alt="Minecraft FPS">
-         <div class="card-details">
-        <h3>Best Minecraft Settings (2025)</h3>
-        <p>Boost FPS and reduce lag — even on low-end systems!</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/FPS.png" alt="Minecraft FPS">
-         <div class="card-details">
-        <h3>Best Minecraft Settings (2025)</h3>
-        <p>Boost FPS and reduce lag — even on low-end systems!</p>
-        </div>
-      </div>
     </section>
     <footer>
       <div class="footer-links">
@@ -108,56 +66,55 @@
     </footer>
   <script src="script/script.js"></script>
   <script>
-    const musicsBlog = [
-        "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
-        "musics/Moonlight Magic - Asher Fulero.mp3",
-        "musics/Sleep Music No. 1 - Chris Haugen.mp3",
-        "musics/Tiburtina - Schwartzy.mp3"
-    ];
+const musicsBlog = [
+    "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
+    "musics/Moonlight Magic - Asher Fulero.mp3",
+    "musics/Sleep Music No. 1 - Chris Haugen.mp3",
+    "musics/Tiburtina - Schwartzy.mp3"
+];
 
-        const music = new Audio();
-        let currentTrack = parseInt(localStorage.getItem("musicIndex")) || 0;
-        const savedTimeBlog = parseFloat(localStorage.getItem("musicTime")) || 0;
-        const isMusicEnabled = localStorage.getItem("minecraft-music");
+const music = new Audio();
+let currentTrack = parseInt(localStorage.getItem("musicIndex")) || 0;
+const savedTimeBlog = parseFloat(localStorage.getItem("musicTime")) || 0;
+const isMusicEnabled = localStorage.getItem("minecraft-music");
 
-        music.volume = 0.5;
-        music.src = musicsBlog[currentTrack];
+music.volume = 0.5;
+music.src = musicsBlog[currentTrack];
 
-        music.addEventListener("loadedmetadata", () => {
-            music.currentTime = savedTimeBlog;
+music.addEventListener("loadedmetadata", () => {
+    music.currentTime = savedTimeBlog;
 
-            if (isMusicEnabled === "true") {
-                music.play();
-            }
-        });
+    if (isMusicEnabled === "true") {
+        music.play();
+    }
+});
 
-        music.onended = () => {
-            currentTrack = (currentTrack + 1) % musicsBlog.length;
-            music.src = musicsBlog[currentTrack];
-            music.play();
-        };
+music.onended = () => {
+    currentTrack = (currentTrack + 1) % musicsBlog.length;
+    music.src = musicsBlog[currentTrack];
+    music.play();
+};
 
-        window.addEventListener("click", () => {
-        const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
-        if (isMusicEnabled && music.paused) {
-            music.currentTime = savedTimeBlog;
-            music.play();
-        }
-        });
+window.addEventListener("click", () => {
+const isMusicEnabled = localStorage.getItem("minecraft-music") === "true";
+if (isMusicEnabled && music.paused) {
+    music.currentTime = savedTimeBlog;
+    music.play();
+}
+});
 
 
-        window.addEventListener("beforeunload", () => {
-            localStorage.setItem("musicIndex", currentTrack);
-            localStorage.setItem("musicTime", music.currentTime);
-        });
+window.addEventListener("beforeunload", () => {
+    localStorage.setItem("musicIndex", currentTrack);
+    localStorage.setItem("musicTime", music.currentTime);
+});
+function goto(){
+const section = document.getElementById("card-section");
+if(section){
+section.scrollIntoView({behavior: "smooth"});
+}
+}
 </script>
-  <script>
-      function goto(){
-       const section = document.getElementById("card-section");
-       if(section){
-        section.scrollIntoView({behavior: "smooth"});
-       }
-      }
-    </script>
+  <script src="script/minecraft.js"></script>
 </body>
 </html>

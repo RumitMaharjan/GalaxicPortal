@@ -167,68 +167,356 @@ nav img, #bar-settings a{
 
 /* Card Section */
 .master-minecraft{
-      margin: 0 auto;
-      margin-bottom: 2rem;
-      padding: 0.5rem 0;
-      width: 100%;
-      text-align: center;
-      background-color: lightgray;
-      border-right: 8px solid gray;
-      border-bottom: 8px solid gray;
-      border-top: 8px solid white;
-      border-left: 8px solid white;
-      outline: 2px solid black;
-      outline-offset: -1px;
-      font-family: 'Press Start 2P', monospace;
-      color: white;
-      text-shadow: 4px 4px gray;
-      box-shadow: 2px 4px 4px white;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+    background-color: lightgray;
+    border-right: 8px solid gray;
+    border-bottom: 8px solid gray;
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+    outline-offset: -1px;
+    font-family: 'Press Start 2P', monospace;
+    color: white;
+    text-shadow: 4px 4px gray;
+
 }
- .card-grid{
-      margin: 0 auto;
-      width: 80%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      align-items: center;
+.card-grid{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 10px white;
+    border-radius: 10px;
+    padding-bottom: 4rem;
+}
+.card{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 8px solid gray;
+    border-bottom: 8px solid gray;
+    border-top: 8px solid white;
+    border-left: 8px solid white;
+    outline: 2px solid black;
+    outline-offset: -1px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px white;
+}
+.card img{
+    width: 100%;
+    border-bottom: 2px solid white;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+}
+.card-details{
+    width: 100%;
+    flex-grow: 1;
+    padding: 0.5rem;
+    color: white;
+    background: darkgray;
+}
+.card h3{
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px black;
+}
+.card p{
+    text-align: justify;
+    font-weight: bold;
+}
+.card:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+    box-shadow: 0 2px 4px white;
+}
+
+/*Gaming Card Section */
+
+.master-gaming {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+    text-align: center;
+    color: #e2e8f0;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    position: relative;
+    text-shadow: 
+        0 0 8px rgba(59, 130, 246, 0.8),
+        0 0 12px rgba(236, 72, 153, 0.6);
+    animation: soft-glow 2s ease-in-out infinite alternate;
+    border: 3px solid rgba(59, 130, 246, 0.5);
+    background: rgba(15, 23, 42, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px 10px 0 0;
+}
+
+.master-gaming:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 5px 15px rgba(59, 130, 246, 0.4),
+        0 5px 20px rgba(236, 72, 153, 0.3);
+}
+
+@keyframes soft-glow {
+    0% {
+        text-shadow: 
+            0 0 8px rgba(59, 130, 246, 0.8),
+            0 0 12px rgba(236, 72, 153, 0.6);
     }
-    .card{
-      width: 300px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-right: 8px solid gray;
-      border-bottom: 8px solid gray;
-      border-top: 8px solid white;
-      border-left: 8px solid white;
-      outline: 2px solid black;
-      outline-offset: -1px;
+    100% {
+        text-shadow: 
+            0 0 12px rgba(59, 130, 246, 1),
+            0 0 18px rgba(236, 72, 153, 0.8);
     }
-    .card img{
-      width: 100%;
-      border-bottom: 2px solid white;
-      height: 200px;
-      margin: 0;
-      padding: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .master-gaming {
+        font-size: 2rem;
+        padding: 12px 25px;
     }
-    .card-details{
-      width: 100%;
-      flex-grow: 1;
-      padding: 0.5rem;
-      color: white;
-      background: darkgray;
+}
+
+@media (max-width: 480px) {
+    .master-gaming {
+        font-size: 1.6rem;
+        padding: 10px 20px;
     }
-    .card h3{
-        margin-top: 0;
-        text-align: left;
-        margin-bottom: 0.5rem;
-        text-shadow: 2px 2px black;
+}
+
+/*Gaming section Card*/
+
+.card-game{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--dark-color);
+    border: 4px solid rgba(59, 130, 246, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.card-game img{
+    width: 100%;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.5);
+    min-height: 180px;
+    margin: 0;
+    padding: 0;
+}
+.card-game .card-details{
+    width: 100%;
+    flex-grow: 1;
+    padding: 0.5rem;
+    color: white;
+    background: var(--dark-color);
+}
+.card-game h3{
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px rgba(59, 130, 246, 0.5);
+}
+.card-game p{
+    text-align: justify;
+    letter-spacing: 0.1px;
+    font-weight: bold;
+    color: gray;
+}
+.card-game:hover{
+    transform: translateY(-12px) rotate(3deg);
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6), 0 8px 25px rgba(236, 72, 153, 0.5);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.futuristic-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #e2e8f0;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3));
+    border: 3px solid #60a5fa;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), inset 0 0 10px rgba(236, 72, 153, 0.4);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-shadow: 0 0 5px #60a5fa;
+    letter-spacing: 0.1rem;
+    overflow: hidden;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none"%3E%3Cpath d="M5 5L45 45M45 5L5 45" stroke="rgba(236,72,153,0.15)" stroke-width="2"/%3E%3C/svg%3E');
+    background-size: 25px 25px;
+}
+
+.futuristic-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.5), transparent);
+    transition: left 0.5s ease;
+}
+
+.futuristic-button:hover::before {
+    left: 100%;
+}
+
+.futuristic-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 15px rgba(236, 72, 153, 0.6);
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.5), rgba(236, 72, 153, 0.5));
+}
+
+.futuristic-button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.futuristic-button span {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-1px, 1px); }
+    40% { transform: translate(1px, -1px); }
+    60% { transform: translate(-1px, 0); }
+    80% { transform: translate(1px, 0); }
+    100% { transform: translate(0); }
+}
+
+.futuristic-button:hover span {
+    animation: glitch 0.3s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .futuristic-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
     }
-    .card p{
-      text-align: justify;
-      font-weight: bold;
+}
+
+@media (max-width: 480px) {
+    .futuristic-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
     }
+}
+
+/* Review Page */
+
+.review-main{
+   background: unset;
+   border-bottom: none;
+   color: white;
+   width: 100%;
+   height: auto;
+   margin: 8rem auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-family: 'Orbitron', sans-serif;
+   overflow: visible;
+}
+.review-main::after, .review-main::before{
+    all: unset;
+}
+
+ canvas {
+    display: block;
+    position: fixed;
+    z-index: -1000;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/*Review section*/
+.gear-review-section, .game-review-section{
+    width: 70%;
+    margin-top: 3rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.gear-review-section h2,  .game-review-section h2{
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.review-main h1{
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px var(--extra-color);
+}
+
+.review-p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient(
+    90deg,
+    #00f0ff,
+    #a56cff,
+    #ffffff,
+    #a56cff,
+    #00f0ff
+    );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: glowMove 5s linear infinite;
+}
+
+@keyframes glowMove {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.review-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}

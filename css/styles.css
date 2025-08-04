@@ -216,7 +216,7 @@ main {
     height: 100vh;
     overflow: hidden;
     cursor: crosshair;
-    background: url("../assets/CherryBackground.gif");
+     background: url("../assets/CherryBackground.gif");
     background-position: center;
     background-size: fill;
     background-attachment: fixed;
@@ -1484,3 +1484,4 @@ footer{
         height: 200px;
     }
 }
+

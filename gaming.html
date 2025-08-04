@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/pages.css">
 </head>
@@ -41,21 +42,56 @@
 <main class="page-content">
   <h1 class="page-title">Gaming Zone</h1>
   <p class="page-description">Game guides, tips, FPS boosts, and modding tricks for all players.</p>
-  <section class="card-grid">
-    <div class="card">
-      <h2>🎯 FPS Boost for Fortnite</h2>
+  <button class="futuristic-button" onclick="goto()"><span onclick="goto()">Upgrade Rigs</span></button>
+</main>
+ <section class="card-grid" style="font-family: 'Orbitron',sans-serif; margin-bottom: 5rem;">
+   <h2 class="master-gaming" id="master-gaming">Build Your Ultimate Budget Setup</h2>
+    <div class="card-game">
+      <img src="minecraftCardImages/maxresdefault.jpg" alt="Picture">
+      <div class="card-details">
+      <h3>FPS Boost for Fortnite</h3>
       <p>Simple tweaks to get smooth gameplay on budget PCs.</p>
+      </div>
     </div>
-    <div class="card">
-      <h2>🛠️ Controller Setup Guide</h2>
+    <div class="card-game">
+      <img src="minecraftCardImages/maxresdefault.jpg" alt="Picture">
+      <div class="card-details">
+      <h3>Controller Setup Guide</h3>
       <p>Best controller mappings for Warzone, Apex, and more.</p>
+      </div>
     </div>
-    <div class="card">
-      <h2>📈 Best Emulator for Android Games</h2>
+    <div class="card-game">
+      <img src="minecraftCardImages/maxresdefault.jpg" alt="Picture">
+      <div class="card-details">
+      <h3>Best Emulator for Games</h3>
       <p>Tested and benchmarked: LDPlayer, Bluestacks, Nox...</p>
+      </div>
     </div>
   </section>
-</main>
+  <section class="card-grid" style="font-family: 'Orbitron',sans-serif; ">
+   <h2 class="master-gaming">Pro Tips, Tricks & Settings</h2>
+    <div class="card-game">
+      <img src="minecraftCardImages/maxresdefault.jpg" alt="Picture">
+      <div class="card-details">
+      <h3>FPS Boost for Fortnite</h3>
+      <p>Simple tweaks to get smooth gameplay on budget PCs.</p>
+      </div>
+    </div>
+    <div class="card-game">
+      <img src="minecraftCardImages/maxresdefault.jpg" alt="Picture">
+      <div class="card-details">
+      <h3>Controller Setup Guide</h3>
+      <p>Best controller mappings for Warzone, Apex, and more.</p>
+      </div>
+    </div>
+    <div class="card-game">
+      <img src="minecraftCardImages/maxresdefault.jpg" alt="Picture">
+      <div class="card-details">
+      <h3>Best Emulator for Games</h3>
+      <p>Tested and benchmarked: LDPlayer, Bluestacks, Nox...</p>
+      </div>
+    </div>
+  </section>
  <footer>
       <div class="footer-links">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
@@ -74,6 +110,12 @@
     </footer>
   <script src="script/script.js"></script>
   <script>
+    function goto(){
+       const section = document.getElementById("master-gaming");
+       if(section){
+        section.scrollIntoView({behavior: "smooth"});
+       }
+      }
     const musicsBlog = [
         "musics/Exploring The Crystal Caves - Asher Fulero.mp3",
         "musics/Moonlight Magic - Asher Fulero.mp3",
