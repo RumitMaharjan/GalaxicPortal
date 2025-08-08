@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header *{
+    box-sizing: content-box;
+}
+
+
+body{
+    background: url(https://i.redd.it/4e6mf5v3uk021.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Side ad containers */
+.ad-side {
+  flex: 0 0 180px;
+  background-color: #2f2f2f;
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: #999;
+  font-size: 1rem;
+  user-select: none;
+  padding: 15px;
+  height: auto;
+  min-height: 600px;
+}
+
+.blog-container {
+  flex: 1 1 900px; 
+  max-width: 1000px;
+  background-color: #1e1e1e;
+  padding: 40px 35px;
+  border-radius: 8px;
+  color: #ddd;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  box-sizing: border-box;
+}
+
+.blog-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.blog-header h1 {
+  margin: 0 0 8px;
+  font-size: 3rem;
+  font-weight: normal;
+  color: #eee;
+}
+
+.blog-header p {
+  margin: 2px 0;
+  color: #aaa;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.blog-image {
+  width: 100%;
+  border-radius: 6px;
+  margin: 30px 0;
+  object-fit: contain;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#blog-content {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #ccc;
+  white-space: pre-wrap;
+}
+
+.ad-placeholder {
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed #555;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  color: #bbb;
+  font-weight: bold;
+  user-select: none;
+}

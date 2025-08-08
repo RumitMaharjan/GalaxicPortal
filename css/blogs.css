@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: url(../assets/blogBackground.jpeg);
+  background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d926ed8e-59a5-4958-a4cb-49012734adeb/dftv4yh-81d66393-4db3-41c1-80ad-fe56f7d4d4ed.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q5MjZlZDhlLTU5YTUtNDk1OC1hNGNiLTQ5MDEyNzM0YWRlYlwvZGZ0djR5aC04MWQ2NjM5My00ZGIzLTQxYzEtODBhZC1mZTU2ZjdkNGQ0ZWQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.q46Wc2zzOnyxIFo1V4KJp4bZwvQt6sZ0vfwRDbBSuZs);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -82,6 +82,7 @@ nav img, #bar-settings, #bar-settings a{
   background: lightgray;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-decoration: none;
 }
 
 .blogImage-container {

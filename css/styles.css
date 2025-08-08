@@ -216,22 +216,12 @@ main {
     height: 100vh;
     overflow: hidden;
     cursor: crosshair;
-     background: url("../assets/CherryBackground.gif");
+    background: url(https://i.redd.it/i-drew-myself-a-4k-wallpaper-inspired-by-a-beautiful-lush-v0-l0pagi2byg391.png?width=3840&format=png&auto=webp&s=ac890afdce912edfbc889821f8c4cb668c243fb6);
     background-position: center;
-    background-size: fill;
+    background-size: cover;
     background-attachment: fixed;
     z-index: 1;
     border-bottom: 2px solid white;
-}
-
-main::after, main::before{
-     content: "";
-     position: absolute;
-     width: 100vw;
-     height: 100vh;
-     background-color: rgba(0, 0, 0, 0.1);
-     z-index: -1;
-     pointer-events: none;
 }
 
 #hero-section {
@@ -249,7 +239,6 @@ main::after, main::before{
     color: white;
     text-align: center;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

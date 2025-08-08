@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "First Blog Title",
+    "subtitle": "Intro to the blog world",
+    "date": "July 17, 2025",
+    "image": "assets/alex.webp",
+    "content": "<p>This is the full content of the first blog. You can write anything here including <strong>HTML tags</strong>, images, code blocks, etc.</p>"
+  },
+  {
+    "id": 2,
+    "title": "Second Blog Title",
+    "subtitle": "Continuing the journey",
+    "date": "July 17, 2025",
+    "image": "assets/steve.png",
+    "content": "<p>This is the full content of the second blog. Add detailed info, tips, or guides here.</p>"
+  }
+]

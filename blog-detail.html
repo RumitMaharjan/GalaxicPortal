@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/blogs.css" />
+  <link rel="stylesheet" href="css/blog-detail.css" />
   <title>Galaxic Portal - Blog</title>
 </head>
 <body>
-<div class="bg-overlay"></div>
+    <div class="bg-overlay"></div>
   <header>
     <nav class="navbar">
       <div id="nav-logo">
@@ -20,52 +20,46 @@
       </div>
       <div id="nav-links">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="minecraft.html"><i class="fa-solid fa-cube"></i> Minecraft</a>
+        <a href="minecraft.html" class="active"><i class="fa-solid fa-cube"></i> Minecraft</a>
         <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
         <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
-        <a href="blog.html"  class="active"><i class="fa-solid fa-book"></i> Blogs</a>
+        <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
       </div>
       <div id="nav-settings">
         <i id="bar" class="fa-solid fa-bars"></i>
       </div>
       <div id="bar-settings">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="minecraft.html"><i class="fa-solid fa-cube"></i> Minecraft</a>
+        <a href="minecraft.html"  class="active"><i class="fa-solid fa-cube"></i> Minecraft</a>
         <a href="gaming.html"><i class="fa-solid fa-gamepad"></i> Gaming</a>
         <a href="reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
-        <a href="blog.html" class="active"><i class="fa-solid fa-book"></i> Blogs</a>
+        <a href="blog.html"><i class="fa-solid fa-book"></i> Blogs</a>
         <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
       </div>
     </nav>
-  </header>
-    <section class="blog-container">
-      <div class="blog-header">
-        <h1>Galaxic Blog Portal</h1>
-        <p>Latest thoughts, guides, and discoveries</p>
-      </div>
-      <div class="blog-grid">
-        <div class="leftcolumn" id="blog-list">
-        </div>
-        <aside class="rightcolumn">
-          <div class="card">
-            <h3>About Me</h3>
-            <div class="blogImage-container"><img src="assets/LanternBlue.webp" alt="About Image" class="blogImage small" /></div>
-            <p>Some text about Galaxic Portal and the creators...</p>
-          </div>
-          <div class="card">
-            <h3>Popular Posts</h3>
-            <div class="blogImage-container"><img src="assets/HeroPortal.jpg" alt="Blog Image" class="blogImage small" /></div>
-            <div class="blogImage-container"><img src="assets/HeroPortal.jpg" alt="Blog Image" class="blogImage small" /></div>
-            <div class="blogImage-container"><img src="assets/HeroPortal.jpg" alt="Blog Image" class="blogImage small" /></div>
-          </div>
-          <div class="card">
-            <h3>Follow Us</h3>
-            <p>Socials coming soon!</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-    <footer>
+</header>
+<div class="page-wrapper">
+  <div class="ad-side ad-left">
+    <div class="ad-placeholder">Ad Left</div>
+  </div>
+
+  <section class="blog-container">
+    <div class="blog-header">
+      <h1 id="blog-title">Loading...</h1>
+      <p id="blog-subtitle"></p>
+      <p id="blog-date"></p>
+    </div>
+
+    <img id="blog-image" src="" alt="Blog Image" class="blog-image" />
+
+    <article id="blog-content"></article>
+  </section>
+
+  <div class="ad-side ad-right">
+    <div class="ad-placeholder">Ad Right</div>
+  </div>
+</div>
+     <footer>
       <div class="footer-links">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
         <a href="minecraft.html"><i class="fa-solid fa-cube"></i>Minecraft</a>
@@ -126,25 +120,40 @@
             localStorage.setItem("musicTime", music.currentTime);
         });
 </script>
-<script>
-fetch('data/blogs.json')
-  .then(response => response.json())
-  .then(blogs => {
-    const blogList = document.getElementById('blog-list');
-    blogs.forEach(blog => {
-      const card = document.createElement('a');
-      card.href = `blog-detail.html?category=blogs&id=${blog.id}`;
-      card.classList.add('card');
-      card.innerHTML = `
-        <h2>${blog.title}</h2>
-        <h5>${blog.subtitle} <span class="timestamp">| ${blog.date}</span></h5>
-        <div class="blogImage-container"><img class="blogImage" src="${blog.image}" alt="Blog Image" /></div>
-        <p>${blog.content.substring(0, 100)}...</p>
-      `;
-      blogList.appendChild(card);
+ <script>
+const params = new URLSearchParams(window.location.search);
+const category = params.get("category");
+const blogId = parseInt(params.get("id"));
+
+const jsonMap = {
+  minecraft: "data/minecraft.json",
+  gaming: "data/gaming.json",
+  reviews: "data/reviews.json",
+  blogs: "data/blogs.json"
+};
+if (!jsonMap[category]) {
+  document.body.innerHTML = "<h1>Invalid category!</h1>";
+} else {
+  fetch(jsonMap[category])
+    .then(res => res.json())
+    .then(data => {
+      const blog = data.find(b => b.id === blogId);
+      if (blog) {
+        document.title = `${blog.title} - Galaxic Portal`;
+        document.getElementById("blog-title").textContent = blog.title;
+        document.getElementById("blog-subtitle").textContent = blog.subtitle;
+        document.getElementById("blog-date").textContent = blog.date;
+        document.getElementById("blog-image").src = blog.image;
+        document.getElementById("blog-content").innerHTML = blog.content;
+      } else {
+        document.body.innerHTML = "<h1>Post not found!</h1>";
+      }
+    })
+    .catch(err => {
+      console.error("Error loading blog:", err);
+      document.body.innerHTML = "<h1>Something went wrong!</h1>";
     });
-  })
-  .catch(err => console.error("Error loading blogs:", err));
+}
 </script>
 </body>
 </html>
